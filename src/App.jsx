@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import BlogList from "./components/BlogList";
 import BlogPost from "./components/BlogPost";
 import NotFound from "./pages/Notfound";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -28,9 +29,12 @@ export default function App() {
           <Route path="/blogs" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contacts" element={<Contact />} />
-          <Route path="*" element={<NotFound />} /> {/* 404 route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+
+      {/* Footer outside main to go full width */}
+      <Footer />
     </div>
   );
 }

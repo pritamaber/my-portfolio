@@ -1,3 +1,5 @@
+import LiveDot from "../components/LiveDot";
+
 const styles = {
   container: {
     maxWidth: 720,
@@ -78,39 +80,43 @@ export default function Home() {
   ];
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>🙋‍♂️ Hi, I'm Pritam</h1>
+    <>
+      <LiveDot />
 
-      <p style={styles.paragraphLarge}>
-        A passionate software engineer from{" "}
-        <span style={styles.boldRedText}>India</span>, I build seamless digital
-        experiences with a blend of logic, clean design, and AI.
-      </p>
+      <div style={styles.container}>
+        <h1 style={styles.heading}>🙋‍♂️ Hi, I'm Pritam</h1>
 
-      <p style={styles.paragraphMediumMargin}>
-        🚀 Technologies I love working with:
-      </p>
+        <p style={styles.paragraphLarge}>
+          A passionate software engineer from{" "}
+          <span style={styles.boldRedText}>India</span>, I build seamless
+          digital experiences with a blend of logic, clean design, and AI.
+        </p>
 
-      <div style={styles.badgeContainer}>
-        {skills.map((skill) => (
-          <span key={skill} style={styles.badge}>
-            {skill}
-          </span>
-        ))}
+        <p style={styles.paragraphMediumMargin}>
+          🚀 Technologies I love working with:
+        </p>
+
+        <div style={styles.badgeContainer}>
+          {skills.map((skill) => (
+            <span key={skill} style={styles.badge}>
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <p style={styles.paragraphMediumBottom}>
+          This portfolio is my playground of ideas — a space where I share my
+          projects, experiments, and thoughts while solving real-world problems
+          with code.
+        </p>
+
+        <p style={styles.paragraphMedium}>
+          📬 Contact:{" "}
+          <a href="mailto:pritam.aber@gmail.com" style={styles.contactLink}>
+            pritam.aber@gmail.com
+          </a>
+        </p>
       </div>
-
-      <p style={styles.paragraphMediumBottom}>
-        This portfolio is my playground of ideas — a space where I share my
-        projects, experiments, and thoughts while solving real-world problems
-        with code.
-      </p>
-
-      <p style={styles.paragraphMedium}>
-        📬 Contact:{" "}
-        <a href="mailto:pritam.aber@gmail.com" style={styles.contactLink}>
-          pritam.aber@gmail.com
-        </a>
-      </p>
-    </div>
+    </>
   );
 }

@@ -5,7 +5,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import BlogList from "./components/BlogList";
 import BlogPost from "./components/BlogPost";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/Notfound";
 
 export default function App() {
   return (

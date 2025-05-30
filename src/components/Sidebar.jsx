@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Home", path: "/", emoji: "🏠" },
   { label: "Blogs", path: "/blogs", emoji: "📃" },
   { label: "Projects", path: "/projects", emoji: "🚀" },
+  { label: "Contact", path: "/contacts", emoji: "☎️" },
 ];
 
 const socialLinks = [

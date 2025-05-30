@@ -1,6 +1,6 @@
 // app/projects/page.jsx
 
-import ProjectCard from "../../components/ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 
 const projects = [
   {

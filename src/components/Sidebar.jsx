@@ -23,17 +23,103 @@ const socialLinks = [
   },
 ];
 
+const styles = {
+  toggleButton: {
+    position: "fixed",
+    top: 10,
+    left: 10,
+    zIndex: 1001,
+    background: "red",
+    color: "white",
+    border: "none",
+    padding: "10px",
+    borderRadius: 5,
+    fontSize: "1.2rem",
+    cursor: "pointer",
+  },
+  sidebar: (open, isMobile) => ({
+    position: "fixed",
+    top: 0,
+    left: open ? 0 : "-100%",
+    height: "100vh",
+    width: 220,
+    borderRight: "1px solid #ddd",
+    padding: "2rem 1rem",
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "white",
+    fontFamily: "'Open Sans', sans-serif",
+    zIndex: 1000,
+    transition: "left 0.3s ease-in-out",
+  }),
+  profilePic: {
+    width: 120,
+    height: 120,
+    borderRadius: "50%",
+    border: "3px solid rgba(255, 0, 0, 0.3)",
+    marginBottom: 8,
+    objectFit: "cover",
+  },
+  bio: {
+    textAlign: "center",
+    marginTop: 8,
+    marginBottom: "1.5rem",
+    fontSize: "0.9rem",
+    color: "#555",
+    lineHeight: 1.6,
+  },
+  nav: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+  },
+  navLink: (isActive) => ({
+    display: "block",
+    padding: "10px 15px",
+    marginBottom: 10,
+    borderRadius: 8,
+    textDecoration: "none",
+    fontSize: "1.05rem",
+    fontWeight: 500,
+    transition: "background-color 0.3s ease, color 0.3s ease",
+    backgroundColor: isActive ? "#ffe6e6" : "transparent",
+    color: isActive ? "red" : "#333",
+    textAlign: "center",
+  }),
+  socialContainer: {
+    width: "100%",
+    borderTop: "1px solid #ddd",
+    paddingTop: "1rem",
+  },
+  socialLink: (hovered) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    padding: "8px 15px",
+    color: "#333",
+    textDecoration: "none",
+    fontSize: "1rem",
+    borderRadius: 6,
+    transition: "background-color 0.3s ease",
+    backgroundColor: hovered ? "#f0f0f0" : "transparent",
+  }),
+};
+
 export default function Sidebar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(window.innerWidth >= 768);
+  const [hoveredSocial, setHoveredSocial] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (!mobile) setOpen(true); // always open on desktop
+      setOpen(!mobile); // Open sidebar by default on desktop
     };
-    handleResize(); // initial
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -43,143 +129,64 @@ export default function Sidebar() {
       {/* Toggle Button (Mobile Only) */}
       {isMobile && (
         <button
-          onClick={() => setOpen(!open)}
-          style={{
-            position: "fixed",
-            top: "10px",
-            left: "10px",
-            zIndex: 1001,
-            background: "red",
-            color: "white",
-            border: "none",
-            padding: "10px",
-            borderRadius: "5px",
-            fontSize: "1.2rem",
-            cursor: "pointer",
-          }}
+          aria-label={open ? "Close sidebar" : "Open sidebar"}
+          onClick={() => setOpen((o) => !o)}
+          style={styles.toggleButton}
         >
           ☰
         </button>
       )}
 
       {/* Sidebar */}
-      <aside
-        style={{
-          position: isMobile ? "fixed" : "fixed",
-          top: 0,
-          left: open ? 0 : "-100%",
-          height: "100vh",
-          width: "220px",
-          borderRight: "1px solid #ddd",
-          padding: "2rem 1rem",
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "white",
-          fontFamily: "'Open Sans', sans-serif",
-          zIndex: 1000,
-          transition: "left 0.3s ease-in-out",
-        }}
-      >
+      <aside style={styles.sidebar(open, isMobile)}>
         {/* Profile Image */}
-        <img
-          src={profilePic}
-          alt="Profile"
-          style={{
-            width: "120px",
-            height: "120px",
-            borderRadius: "50%",
-            border: "3px solid rgba(255, 0, 0, 0.3)",
-            marginBottom: "0.5rem",
-            objectFit: "cover",
-          }}
-        />
+        <img src={profilePic} alt="Profile" style={styles.profilePic} />
 
         {/* Bio */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "0.5rem",
-            marginBottom: "1.5rem",
-            fontSize: "0.9rem",
-            color: "#555",
-            lineHeight: "1.6",
-          }}
-        >
+        <div style={styles.bio}>
           <div>
             <strong>Full-Time Debugger, Part-Time Wizard 🧙‍♂️</strong>
           </div>
           <div>Interested in coding and stuff..</div>
+          <hr />
         </div>
 
         {/* Nav Links */}
-        <nav
-          style={{ display: "flex", flexDirection: "column", width: "100%" }}
-        >
+        <nav style={styles.nav}>
           {navLinks.map(({ label, path, emoji }) => (
             <NavLink
               key={path}
               to={path}
               onClick={() => isMobile && setOpen(false)} // auto-close on mobile
-              style={({ isActive }) => ({
-                display: "block",
-                padding: "10px 15px",
-                marginBottom: "10px",
-                borderRadius: "8px",
-                textDecoration: "none",
-                fontSize: "1.05rem",
-                fontWeight: 500,
-                transition: "background-color 0.3s ease, color 0.3s ease",
-                backgroundColor: isActive ? "#ffe6e6" : "transparent",
-                color: isActive ? "red" : "#333",
-                textAlign: "center",
-              })}
+              style={({ isActive }) => styles.navLink(isActive)}
             >
               {emoji} {label}
             </NavLink>
           ))}
         </nav>
 
-        <div style={{ flexGrow: 1 }}></div>
+        <div style={{ flexGrow: 1 }} />
 
         {/* Social Links */}
-        <div
-          style={{
-            width: "100%",
-            borderTop: "1px solid #ddd",
-            paddingTop: "1rem",
-          }}
-        >
-          {socialLinks.map(({ label, url, emoji }) => (
-            <a
-              key={label}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                padding: "8px 15px",
-                color: "#333",
-                textDecoration: "none",
-                fontSize: "1rem",
-                borderRadius: "6px",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#f0f0f0";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-              }}
-            >
-              <span>{emoji}</span>
-              <span>{label}</span>
-            </a>
-          ))}
+        <div style={styles.socialContainer}>
+          {socialLinks.map(({ label, url, emoji }) => {
+            const isHovered = hoveredSocial === label;
+            return (
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.socialLink(isHovered)}
+                onMouseEnter={() => setHoveredSocial(label)}
+                onMouseLeave={() => setHoveredSocial(null)}
+                aria-label={`Visit ${label}`}
+              >
+                <span>{emoji}</span>
+                <span>{label}</span>
+              </a>
+            );
+          })}
         </div>
       </aside>
     </>

@@ -1,52 +1,82 @@
+import React, { useState } from "react";
+
+const styles = {
+  card: {
+    border: "1px solid #ddd",
+    borderRadius: "12px",
+    padding: "1.2rem",
+    marginBottom: "1.5rem",
+    width: "100%",
+    maxWidth: "600px",
+    backgroundColor: "#fff",
+    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    boxSizing: "border-box",
+  },
+  title: {
+    fontSize: "1.3rem",
+    marginBottom: "0.5rem",
+    color: "#222",
+  },
+  description: {
+    fontSize: "1rem",
+    marginBottom: "1rem",
+    color: "#555",
+  },
+  linksWrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "1rem",
+  },
+  linkBase: {
+    padding: "8px 16px",
+    borderRadius: "6px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    transition: "background-color 0.3s ease",
+    color: "white",
+    cursor: "pointer",
+    userSelect: "none",
+  },
+  liveLink: {
+    backgroundColor: "#007bff",
+  },
+  liveLinkHover: {
+    backgroundColor: "#0056b3",
+  },
+  githubLink: {
+    backgroundColor: "#24292e",
+  },
+  githubLinkHover: {
+    backgroundColor: "#000",
+  },
+};
+
 export default function ProjectCard({
   title,
   description,
   liveLink,
   githubLink,
 }) {
+  const [isLiveHovered, setLiveHovered] = useState(false);
+  const [isGithubHovered, setGithubHovered] = useState(false);
+
   return (
-    <div
-      style={{
-        border: "1px solid #ddd",
-        borderRadius: "12px",
-        padding: "1.2rem",
-        marginBottom: "1.5rem",
-        width: "100%",
-        maxWidth: "600px",
-        backgroundColor: "#fff",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        boxSizing: "border-box",
-      }}
-    >
-      <h3 style={{ fontSize: "1.3rem", marginBottom: "0.5rem", color: "#222" }}>
-        {title}
-      </h3>
-
-      <p style={{ fontSize: "1rem", marginBottom: "1rem", color: "#555" }}>
-        {description}
-      </p>
-
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+    <div style={styles.card}>
+      <h3 style={styles.title}>{title}</h3>
+      <p style={styles.description}>{description}</p>
+      <div style={styles.linksWrapper}>
         <a
           href={liveLink}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Visit live project: ${title}`}
           style={{
-            color: "white",
-            backgroundColor: "#007bff",
-            padding: "8px 16px",
-            borderRadius: "6px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "background-color 0.3s ease",
+            ...styles.linkBase,
+            ...(isLiveHovered ? styles.liveLinkHover : styles.liveLink),
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#0056b3";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#007bff";
-          }}
+          onMouseEnter={() => setLiveHovered(true)}
+          onMouseLeave={() => setLiveHovered(false)}
         >
           🔗 Live
         </a>
@@ -55,21 +85,13 @@ export default function ProjectCard({
           href={githubLink}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Visit GitHub repository: ${title}`}
           style={{
-            color: "white",
-            backgroundColor: "#24292e",
-            padding: "8px 16px",
-            borderRadius: "6px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "background-color 0.3s ease",
+            ...styles.linkBase,
+            ...(isGithubHovered ? styles.githubLinkHover : styles.githubLink),
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#000";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#24292e";
-          }}
+          onMouseEnter={() => setGithubHovered(true)}
+          onMouseLeave={() => setGithubHovered(false)}
         >
           💻 GitHub
         </a>

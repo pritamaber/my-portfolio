@@ -1,4 +1,6 @@
-import ProjectCard from "../components/ProjectCard";
+// app/projects/page.jsx
+
+import ProjectCard from "../../components/ProjectCard";
 
 const projects = [
   {
@@ -74,9 +76,9 @@ const projects = [
 ];
 
 const headingStyle = {
-  fontSize: "2.6rem",
-  marginBottom: "1.8rem",
-  color: "#d32f2f",
+  fontSize: "2.5rem",
+  marginBottom: "2rem",
+  color: "red",
   fontFamily: "'Dancing Script', cursive",
   lineHeight: 1.2,
 };
@@ -89,15 +91,15 @@ export default function Projects() {
         fontFamily: "'Roboto', sans-serif",
         color: "#333",
         lineHeight: "1.7",
-        maxWidth: "760px",
+        maxWidth: "700px",
         margin: "0 auto",
       }}
     >
-      <h1 style={headingStyle}>🚀 My Projects</h1>
-      <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem", color: "#555" }}>
-        These are apps, tools, and experiments I’ve built — from AI-powered
-        career tools to dev-focused utilities. Most are fullstack React-based.
-      </p>
-      <hr style={{ marginBottom: "2rem", borderColor: "#ccc" }} />
-      <div>
-        {projects.map((proj) => (
+      <h1 style={headingStyle}>Projects 🚀🚀</h1>
+      <hr />
+      {projects.map((proj, idx) => (
+        <ProjectCard key={idx} {...proj} />
+      ))}
+    </div>
+  );
+}

@@ -14,6 +14,11 @@ const socialLinks = [
     emoji: "🔗",
   },
   { label: "GitHub", url: "https://github.com/pritamaber", emoji: "💻" },
+  {
+    label: "Leetcode",
+    url: "https://leetcode.com/u/pritamaber2/",
+    emoji: "🧑‍💻",
+  },
 ];
 
 export default function Sidebar() {

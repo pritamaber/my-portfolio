@@ -50,7 +50,7 @@ export default function Sidebar() {
       />
 
       {/* Cursive Signature */}
-      <p
+      {/* <p
         style={{
           fontFamily: "'Dancing Script', cursive",
           fontSize: "1.8rem",
@@ -60,7 +60,25 @@ export default function Sidebar() {
         }}
       >
         Pritam..😎😎
-      </p>
+      </p> */}
+      {/* Bio and Skills */}
+      {/* Bio and Skills */}
+      {/* Bio and Skills */}
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "0.5rem",
+          marginBottom: "1.5rem",
+          fontSize: "0.9rem",
+          color: "#555",
+          lineHeight: "1.6",
+        }}
+      >
+        <div>
+          <strong>Full-Time Debugger, Part-Time Wizard 🧙‍♂️</strong>
+        </div>
+        <div>Interested in coding and stuff..</div>
+      </div>
 
       {/* Navigation Links */}
       <div

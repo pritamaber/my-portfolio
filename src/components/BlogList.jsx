@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import matter from "gray-matter"; // Import gray-matter for parsing frontmatter
 
 const headingStyle = {
   fontSize: "2.5rem",

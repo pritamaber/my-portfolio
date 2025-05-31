@@ -4,14 +4,12 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import "highlight.js/styles/github-dark.css";
 
-/** Calculate estimated reading time (in minutes) based on average words per minute */
 const calculateReadingTime = (text) => {
   const wordsPerMinute = 200;
   const words = text.trim().split(/\s+/).length;
   return Math.ceil(words / wordsPerMinute);
 };
 
-/** Format ISO date string to human-readable format */
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   if (isNaN(date)) return dateString;
@@ -21,8 +19,6 @@ const formatDate = (dateString) => {
     day: "numeric",
   });
 };
-
-// ---------- Styles ----------
 
 const styles = {
   container: {
@@ -75,14 +71,9 @@ const styles = {
   },
 };
 
-/**
- * BlogReader renders markdown content with syntax highlighting,
- * supports GFM features, and shows post metadata like author, date, and reading time.
- */
 const BlogReader = ({ content, meta = {} }) => {
   const readingTime = calculateReadingTime(content);
 
-  /** Copy code block text to clipboard with alert feedback */
   const handleCopy = async (code) => {
     try {
       await navigator.clipboard.writeText(code);
@@ -94,35 +85,27 @@ const BlogReader = ({ content, meta = {} }) => {
 
   return (
     <article style={styles.container}>
+      {/* Move metadata outside markdown content */}
+      <h1 style={styles.title}>{meta.title}</h1>
+      {(meta.author || meta.date) && (
+        <div style={styles.meta}>
+          {meta.author && <span>By {meta.author}</span>}
+          {meta.author && meta.date && <span> | </span>}
+          {meta.date && (
+            <time dateTime={meta.date}>{formatDate(meta.date)}</time>
+          )}
+          <span> | {readingTime} min read</span>
+        </div>
+      )}
+
       <ReactMarkdown
         children={content}
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         components={{
-          h1: ({ node, ...props }) => (
-            <>
-              <h1 style={styles.title} {...props}>
-                {meta.title || props.children}
-              </h1>
-              {/* Metadata display under title */}
-              {(meta.author || meta.date) && (
-                <div style={styles.meta}>
-                  {meta.author && <span>By {meta.author}</span>}
-                  {meta.author && meta.date && <span> | </span>}
-                  {meta.date && (
-                    <time dateTime={meta.date}>{formatDate(meta.date)}</time>
-                  )}
-                  <span> | {readingTime} min read</span>
-                </div>
-              )}
-            </>
-          ),
-
           h2: ({ node, ...props }) => <h2 style={styles.heading2} {...props} />,
-
           code({ inline, className, children, ...props }) {
             const codeText = String(children).trim();
-
             if (inline) {
               return (
                 <code style={styles.inlineCode} {...props}>
@@ -130,7 +113,6 @@ const BlogReader = ({ content, meta = {} }) => {
                 </code>
               );
             }
-
             return (
               <div style={styles.codeBlockWrapper}>
                 <button

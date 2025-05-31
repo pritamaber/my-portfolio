@@ -84,6 +84,14 @@ export default function BlogList() {
 
       <hr style={{ marginBottom: "2rem", borderColor: "#ccc" }} />
 
+      <p>
+        This blog is a curated collection of React concepts—from basics to
+        advanced topics—featuring practical techniques and mini projects to help
+        you master each feature.
+      </p>
+
+      <hr style={{ marginBottom: "2rem", borderColor: "#ccc" }} />
+
       <ul
         style={{
           listStyle: "none",
@@ -93,7 +101,7 @@ export default function BlogList() {
         }}
       >
         {filteredBlogs.length > 0 ? (
-          filteredBlogs.map(({ slug, title }) => (
+          filteredBlogs.map(({ slug, title }, index) => (
             <li key={slug} style={{ marginBottom: "1.2rem" }}>
               <Link
                 to={`/blog/${slug}`}
@@ -108,7 +116,7 @@ export default function BlogList() {
                 }
                 onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
               >
-                {title}
+                {index + 1}. {title}
               </Link>
             </li>
           ))

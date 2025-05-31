@@ -1,5 +1,3 @@
-import LiveDot from "../components/LiveDot";
-
 const styles = {
   container: {
     maxWidth: 720,
@@ -81,8 +79,6 @@ export default function Home() {
 
   return (
     <>
-      <LiveDot />
-
       <div style={styles.container}>
         <h1 style={styles.heading}>🙋‍♂️ Hi, I'm Pritam</h1>
 

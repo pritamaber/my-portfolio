@@ -142,12 +142,40 @@ export default function Sidebar() {
         {/* Profile Image */}
         <img src={profilePic} alt="Profile" style={styles.profilePic} />
 
+        {/* Availability Tag with Pulsing Dot */}
+        <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              backgroundColor: "#d4edda",
+              color: "#155724",
+              padding: "4px 12px",
+              borderRadius: "999px",
+              fontSize: "0.9rem",
+              fontWeight: "bold",
+            }}
+          >
+            <span
+              style={{
+                width: "10px",
+                height: "10px",
+                borderRadius: "50%",
+                backgroundColor: "#28a745",
+                animation: "pulse 1.5s infinite ease-in-out",
+              }}
+            />
+            Available
+          </span>
+        </div>
+
         {/* Bio */}
         <div style={styles.bio}>
-          <div>
-            <strong>Full-Time Debugger, Part-Time Wizard 🧙‍♂️</strong>
+          <div style={{ marginTop: "1rem" }}>
+            <strong>Code. Debug. Repeat. 🚀</strong>
           </div>
-          <div>Interested in coding and stuff..</div>
+          <div>React lover, problem solver, lifelong learner.</div>
           <hr />
         </div>
 
@@ -157,7 +185,7 @@ export default function Sidebar() {
             <NavLink
               key={path}
               to={path}
-              onClick={() => isMobile && setOpen(false)} // auto-close on mobile
+              onClick={() => isMobile && setOpen(false)}
               style={({ isActive }) => styles.navLink(isActive)}
             >
               {emoji} {label}
@@ -188,6 +216,17 @@ export default function Sidebar() {
             );
           })}
         </div>
+
+        {/* Add animation keyframes */}
+        <style>
+          {`
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.6); opacity: 0.4; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+    `}
+        </style>
       </aside>
     </>
   );

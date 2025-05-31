@@ -1,12 +1,9 @@
-# React + Vite
+# My portfolio website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hi, I'm Pritam , and this project is my portfolio website hosted at https://www.taglet.in [taglet.in]
 
-Currently, two official plugins are available:
+You may use the code as a boiler plate for you portfolio website , just change the images and url in the sidebar.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+As this is build using vite + react , we use client side rendering and for blogs it uses markdown files .
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Feel free to drop and email at - pritam.aber@gmail.com for any suggestions or just a chat .

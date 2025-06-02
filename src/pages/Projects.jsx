@@ -1,5 +1,3 @@
-// app/projects/page.jsx
-
 import ProjectCard from "../components/ProjectCard";
 
 const projects = [
@@ -75,31 +73,27 @@ const projects = [
   },
 ];
 
-const headingStyle = {
-  fontSize: "2.5rem",
-  marginBottom: "2rem",
-  color: "red",
-  fontFamily: "'Dancing Script', cursive",
-  lineHeight: 1.2,
-};
-
 export default function Projects() {
   return (
-    <div
-      style={{
-        padding: "2rem 5vw",
-        fontFamily: "'Roboto', sans-serif",
-        color: "#333",
-        lineHeight: "1.7",
-        maxWidth: "700px",
-        margin: "0 auto",
-      }}
-    >
-      <h1 style={headingStyle}>Projects 🚀🚀</h1>
-      <hr />
-      {projects.map((proj, idx) => (
-        <ProjectCard key={idx} {...proj} />
-      ))}
+    <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800">
+      <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing mb-8">
+        Projects 🚀🚀
+      </h1>
+      <hr className="mb-8 border-gray-300" />
+
+      <div className="flex flex-col gap-6">
+        <ProjectCard
+          title="📘 30-Day React Fundamentals"
+          description="A daily React learning journey with 30 mini projects covering core features like useState, useEffect, Context API, Routing, and more."
+          link="https://github.com/pritamaber/react-fundamental-projects"
+          stack={["React", "Tailwind", "JavaScript"]}
+          badge="🔥 Recruiter Friendly"
+          tag="Learning Series"
+        />
+        {projects.map((proj, idx) => (
+          <ProjectCard key={idx} {...proj} />
+        ))}
+      </div>
     </div>
   );
 }

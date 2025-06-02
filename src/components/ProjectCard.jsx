@@ -1,57 +1,5 @@
 import React, { useState } from "react";
 
-const styles = {
-  card: {
-    border: "1px solid #ddd",
-    borderRadius: "12px",
-    padding: "1.2rem",
-    marginBottom: "1.5rem",
-    width: "100%",
-    maxWidth: "600px",
-    backgroundColor: "#fff",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    boxSizing: "border-box",
-  },
-  title: {
-    fontSize: "1.3rem",
-    marginBottom: "0.5rem",
-    color: "#222",
-  },
-  description: {
-    fontSize: "1rem",
-    marginBottom: "1rem",
-    color: "#555",
-  },
-  linksWrapper: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "1rem",
-  },
-  linkBase: {
-    padding: "8px 16px",
-    borderRadius: "6px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    transition: "background-color 0.3s ease",
-    color: "white",
-    cursor: "pointer",
-    userSelect: "none",
-  },
-  liveLink: {
-    backgroundColor: "#007bff",
-  },
-  liveLinkHover: {
-    backgroundColor: "#0056b3",
-  },
-  githubLink: {
-    backgroundColor: "#24292e",
-  },
-  githubLinkHover: {
-    backgroundColor: "#000",
-  },
-};
-
 export default function ProjectCard({
   title,
   description,
@@ -62,21 +10,20 @@ export default function ProjectCard({
   const [isGithubHovered, setGithubHovered] = useState(false);
 
   return (
-    <div style={styles.card}>
-      <h3 style={styles.title}>{title}</h3>
-      <p style={styles.description}>{description}</p>
-      <div style={styles.linksWrapper}>
+    <div className="border border-gray-200 rounded-xl p-6 shadow-sm bg-white">
+      <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+      <p className="text-base text-gray-600 mb-4">{description}</p>
+
+      <div className="flex flex-wrap gap-4">
         <a
           href={liveLink}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Visit live project: ${title}`}
-          style={{
-            ...styles.linkBase,
-            ...(isLiveHovered ? styles.liveLinkHover : styles.liveLink),
-          }}
           onMouseEnter={() => setLiveHovered(true)}
           onMouseLeave={() => setLiveHovered(false)}
+          className={`px-4 py-2 rounded-md font-medium transition ${
+            isLiveHovered ? "bg-blue-800" : "bg-blue-600"
+          } text-white`}
         >
           🔗 Live
         </a>
@@ -85,13 +32,11 @@ export default function ProjectCard({
           href={githubLink}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Visit GitHub repository: ${title}`}
-          style={{
-            ...styles.linkBase,
-            ...(isGithubHovered ? styles.githubLinkHover : styles.githubLink),
-          }}
           onMouseEnter={() => setGithubHovered(true)}
           onMouseLeave={() => setGithubHovered(false)}
+          className={`px-4 py-2 rounded-md font-medium transition ${
+            isGithubHovered ? "bg-gray-900" : "bg-gray-800"
+          } text-white`}
         >
           💻 GitHub
         </a>

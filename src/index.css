@@ -1,15 +1,13 @@
 @import "tailwindcss";
+/* Optional global styles */
 body {
-  margin: 0;
-  background-color: white;
-  color: black;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  @apply m-0 bg-white text-black font-sans;
 }
 
 a {
-  text-decoration: none;
+  @apply no-underline;
 }
 
 a:hover {
-  text-decoration: underline;
+  @apply underline;
 }

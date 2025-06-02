@@ -1,41 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const headingStyle = {
-  fontSize: "2.5rem",
-  marginBottom: "0", // Remove bottom margin so heading & search align tightly
-  color: "red",
-  fontFamily: "'Dancing Script', cursive",
-  lineHeight: 1.2,
-};
-
-const containerStyle = {
-  padding: "2rem 5vw",
-  fontFamily: "'Roboto', sans-serif",
-  color: "#333",
-  lineHeight: "1.7",
-  maxWidth: "700px",
-  margin: "0 auto",
-  textAlign: "left",
-};
-
-const headerWrapperStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  marginBottom: "1rem",
-};
-
-const searchInputStyle = {
-  padding: "0.5rem 1rem",
-  fontSize: "1rem",
-  border: "2px solid red",
-  borderRadius: "8px",
-  outline: "none",
-  transition: "border-color 0.3s ease",
-  width: "200px",
-};
-
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,7 +14,6 @@ export default function BlogList() {
           const slug = path.split("/").pop().replace(".md", "");
           const content = await loader();
 
-          // Simple regex to extract title from frontmatter
           const match = content.match(/---\s*title:\s*["']?(.*?)["']?\s*\n/);
           const title = match ? match[1] : slug;
 
@@ -62,68 +26,49 @@ export default function BlogList() {
 
     loadBlogs();
   }, []);
+
   const filteredBlogs = blogs.filter(({ title }) =>
     title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div style={containerStyle}>
-      <div style={headerWrapperStyle}>
-        <h1 style={headingStyle}>Blog 📝 📝</h1>
+    <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing">
+          Blog 📝
+        </h1>
         <input
           type="search"
           placeholder="Search blogs..."
-          style={searchInputStyle}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          onFocus={(e) => (e.target.style.borderColor = "#b30000")}
-          onBlur={(e) => (e.target.style.borderColor = "red")}
+          className="border-2 border-red-600 focus:border-red-800 px-4 py-2 rounded-lg text-base outline-none transition w-full md:w-[250px]"
           aria-label="Search blogs"
         />
       </div>
 
-      <hr style={{ marginBottom: "2rem", borderColor: "#ccc" }} />
+      <hr className="mb-8 border-gray-300" />
 
-      <p>
+      <p className="text-lg mb-8">
         This blog is a curated collection of React concepts—from basics to
         advanced topics—featuring practical techniques and mini projects to help
         you master each feature.
       </p>
 
-      <hr style={{ marginBottom: "2rem", borderColor: "#ccc" }} />
-
-      <ul
-        style={{
-          listStyle: "none",
-          padding: 0,
-          maxWidth: "600px",
-          margin: "0",
-        }}
-      >
+      <ul className="list-none space-y-4">
         {filteredBlogs.length > 0 ? (
           filteredBlogs.map(({ slug, title }, index) => (
-            <li key={slug} style={{ marginBottom: "1.2rem" }}>
+            <li key={slug}>
               <Link
                 to={`/blog/${slug}`}
-                style={{
-                  color: "red",
-                  fontWeight: "500",
-                  textDecoration: "none",
-                  fontSize: "1.2rem",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.textDecoration = "underline")
-                }
-                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+                className="text-red-600 font-medium text-lg hover:underline"
               >
                 {index + 1}. {title}
               </Link>
             </li>
           ))
         ) : (
-          <li style={{ fontStyle: "italic", color: "#666" }}>
-            No blogs found.
-          </li>
+          <li className="italic text-gray-500">No blogs found.</li>
         )}
       </ul>
     </div>

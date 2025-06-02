@@ -106,12 +106,22 @@ export default function Home() {
           with code.
         </p>
 
-        <p style={styles.paragraphMedium}>
-          📬 Contact:{" "}
-          <a href="mailto:pritam.aber@gmail.com" style={styles.contactLink}>
-            pritam.aber@gmail.com
+        <div style={{ marginTop: "2rem" }}>
+          <a
+            href="mailto:pritam.aber@gmail.com"
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#333",
+              color: "white",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontWeight: "bold",
+              fontSize: "1rem",
+            }}
+          >
+            📬 Let's Talk
           </a>
-        </p>
+        </div>
       </div>
     </>
   );

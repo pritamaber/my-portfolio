@@ -1,26 +1,28 @@
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
+import DarkModeToggle from "./components/DarkModeToggle";
+import BlogList from "./components/BlogList";
+import BlogPost from "./components/BlogPost";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import BlogList from "./components/BlogList";
-import BlogPost from "./components/BlogPost";
 import NotFound from "./pages/Notfound";
-import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div style={{ display: "flex" }}>
+    <div className="flex">
       <Sidebar />
+      {/* <DarkModeToggle /> */}
 
-      {/* Main content container */}
+      {/* Main content - dark mode aware */}
       <main
+        className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300"
         style={{
-          marginLeft: "220px", // width of sidebar
+          marginLeft: "220px",
           padding: "2rem 3rem",
           flexGrow: 1,
           minHeight: "100vh",
-          backgroundColor: "white",
         }}
       >
         <Routes>
@@ -33,7 +35,6 @@ export default function App() {
         </Routes>
       </main>
 
-      {/* Footer outside main to go full width */}
       <Footer />
     </div>
   );

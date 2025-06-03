@@ -32,9 +32,9 @@ export default function BlogList() {
   );
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800">
+    <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800 dark:text-gray-200">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing">
+        <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing dark:text-red-300 mb-6">
           React fundamental projects 🚀 📝
         </h1>
         <input
@@ -42,14 +42,14 @@ export default function BlogList() {
           placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="border-2 border-red-600 focus:border-red-800 px-4 py-2 rounded-lg text-base outline-none transition w-full md:w-[250px]"
+          className="border-2 border-red-600 focus:border-red-800 px-4 py-2 rounded-lg text-base outline-none transition w-full md:w-[250px] bg-white dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400"
           aria-label="Search blogs"
         />
       </div>
 
-      <hr className="mb-8 border-gray-300" />
+      <hr className="mb-8 border-gray-300 dark:border-gray-700" />
 
-      <p className="text-lg mb-8 leading-relaxed text-gray-800">
+      <p className="text-lg mb-8 leading-relaxed text-gray-800 dark:text-gray-300">
         I'm documenting my React learning journey through a series of hands-on
         mini projects, each focusing on core fundamentals of React. Check out
         the complete collection on{" "}
@@ -57,7 +57,7 @@ export default function BlogList() {
           href="https://github.com/pritamaber/react-fundamental-projects"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-red-600 underline hover:text-red-800 font-semibold"
+          className="text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold"
         >
           GitHub ↗
         </a>
@@ -70,14 +70,16 @@ export default function BlogList() {
             <li key={slug}>
               <Link
                 to={`/blog/${slug}`}
-                className="text-red-600 font-medium text-lg hover:underline"
+                className="text-red-600 font-medium text-lg hover:underline dark:text-red-400 dark:hover:text-red-300"
               >
                 {index + 1}. {title}
               </Link>
             </li>
           ))
         ) : (
-          <li className="italic text-gray-500">No blogs found.</li>
+          <li className="italic text-gray-500 dark:text-gray-400">
+            No blogs found.
+          </li>
         )}
       </ul>
     </div>

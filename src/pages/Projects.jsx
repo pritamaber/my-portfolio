@@ -95,7 +95,7 @@ const projects = [
 export default function Projects() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800">
-      <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing mb-8">
+      <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing dark:text-red-300 mb-8">
         Projects 🚀🚀
       </h1>
       <hr className="mb-8 border-gray-300" />

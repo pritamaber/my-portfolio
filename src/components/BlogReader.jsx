@@ -33,17 +33,17 @@ export default function BlogReader({ content, meta = {} }) {
   };
 
   return (
-    <article className="prose prose-lg max-w-3xl mx-auto font-roboto text-gray-800 prose-code:before:content-none prose-code:after:content-none">
+    <article className="prose prose-lg dark:prose-invert max-w-3xl mx-auto font-roboto prose-code:before:content-none prose-code:after:content-none">
       {/* Title */}
       {meta.title && (
-        <h1 className="text-4xl text-red-600 font-dancing mb-2">
+        <h1 className="text-4xl text-red-600 font-dancing mb-2 dark:text-red-400">
           {meta.title}
         </h1>
       )}
 
       {/* Meta Info */}
       {(meta.author || meta.date) && (
-        <div className="text-sm text-gray-500 mb-6">
+        <div className="text-sm text-gray-500 dark:text-gray-400 mb-6">
           {meta.author && <span>By {meta.author}</span>}
           {meta.author && meta.date && <span> • </span>}
           {meta.date && (
@@ -61,7 +61,7 @@ export default function BlogReader({ content, meta = {} }) {
         components={{
           h2: ({ node, ...props }) => (
             <h2
-              className="text-2xl text-blue-600 border-b pb-1 mt-8 mb-4"
+              className="text-2xl text-blue-600 border-b pb-1 mt-8 mb-4 dark:text-blue-400 dark:border-gray-600"
               {...props}
             />
           ),
@@ -70,7 +70,7 @@ export default function BlogReader({ content, meta = {} }) {
             if (inline) {
               return (
                 <code
-                  className="bg-gray-100 px-1.5 py-0.5 rounded text-sm"
+                  className="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 px-1.5 py-0.5 rounded text-sm"
                   {...props}
                 >
                   {codeText}
@@ -87,7 +87,7 @@ export default function BlogReader({ content, meta = {} }) {
                 >
                   Copy
                 </button>
-                <pre className="overflow-x-auto rounded-lg p-4 bg-gray-900 text-white">
+                <pre className="overflow-x-auto rounded-lg p-4 bg-[#1e293b] text-slate-200">
                   <code className={className} {...props}>
                     {codeText}
                   </code>

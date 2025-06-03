@@ -50,9 +50,11 @@ export default function Sidebar() {
       )}
 
       <aside
-        className={`fixed top-0 left-0 h-screen w-56 bg-white border-r border-gray-200 px-4 py-6 flex flex-col z-[1000] transition-all duration-300 ${
-          open ? "left-0" : "-left-full"
-        }`}
+        className={`fixed top-0 left-0 h-screen w-56 
+    bg-white dark:bg-gray-900 
+    border-r border-transparent dark:border-transparent shadow-none
+    px-4 py-6 flex flex-col z-[1000] transition-all duration-300 
+    ${open ? "left-0" : "-left-full"}`}
       >
         <img
           src={profilePic}
@@ -69,7 +71,7 @@ export default function Sidebar() {
         </div>
 
         {/* Bio */}
-        <div className="text-center mt-4 text-sm text-gray-600 px-2 leading-6">
+        <div className="text-center mt-4 text-sm text-gray-600 dark:text-gray-300 px-2 leading-6">
           <div className="font-semibold mb-1">⚡ Code. Debug. Repeat.</div>
           Tech enthusiast, problem solver, lifelong learner
         </div>
@@ -84,8 +86,8 @@ export default function Sidebar() {
               className={({ isActive }) =>
                 `block text-center py-2 px-3 rounded-md text-base font-medium transition ${
                   isActive
-                    ? "bg-red-100 text-red-700 font-semibold"
-                    : "hover:bg-gray-100"
+                    ? "bg-red-100 text-red-700 font-semibold dark:bg-red-800 dark:text-white"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-300"
                 }`
               }
             >
@@ -94,18 +96,18 @@ export default function Sidebar() {
           ))}
         </nav>
 
-        {/* Spacer */}
         <div className="flex-grow" />
 
         {/* Social Links */}
-        <div className="border-t pt-4 flex flex-col gap-2">
+        {/* Soft separator before social links */}
+        <div className="mt-6 pt-4 flex flex-col gap-2 relative before:absolute before:top-0 before:left-4 before:right-4 before:h-px before:bg-gray-300 before:dark:bg-gray-700/40 before:content-['']">
           {socialLinks.map(({ label, url, emoji }) => (
             <a
               key={label}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-sm text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md transition"
+              className="flex items-center justify-center gap-2 text-sm text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md transition dark:text-gray-300 dark:hover:bg-gray-800"
             >
               {emoji} {label}
             </a>

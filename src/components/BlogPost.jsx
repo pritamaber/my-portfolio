@@ -56,17 +56,17 @@ export default function BlogPost() {
 
   if (!content) {
     return (
-      <p className="text-center text-gray-500 text-lg mt-10">
+      <p className="text-center text-gray-500 dark:text-gray-400 text-lg mt-10">
         Loading blog post...
       </p>
     );
   }
 
   return (
-    <div className="px-4 py-10 max-w-3xl mx-auto font-roboto text-gray-800">
+    <div className="px-4 py-10 max-w-3xl mx-auto font-roboto text-gray-800 dark:text-gray-200">
       <button
         onClick={() => navigate("/blogs")}
-        className="text-blue-600 border border-blue-600 px-4 py-2 rounded-md mb-6 hover:bg-blue-50 transition"
+        className="text-blue-600 border border-blue-600 px-4 py-2 rounded-md mb-6 hover:bg-blue-50 transition dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20"
         aria-label="Go back to blog list"
       >
         ← Back to Blogs

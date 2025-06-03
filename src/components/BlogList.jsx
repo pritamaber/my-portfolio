@@ -21,7 +21,7 @@ export default function BlogList() {
         })
       );
 
-      setBlogs(blogData);
+      setBlogs(blogData.reverse()); // 👈 Ensures oldest at top, latest at bottom
     };
 
     loadBlogs();

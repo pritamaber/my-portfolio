@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import profilePic from "../assets/pritam.jpg";
+import profilePic from "../assets/pritam-av.jpg";
 
 const navLinks = [
   { label: "Home", path: "/", emoji: "🏠" },

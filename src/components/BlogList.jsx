@@ -35,11 +35,11 @@ export default function BlogList() {
     <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing">
-          Blog 📝
+          React fundamental projects 🚀 📝
         </h1>
         <input
           type="search"
-          placeholder="Search blogs..."
+          placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="border-2 border-red-600 focus:border-red-800 px-4 py-2 rounded-lg text-base outline-none transition w-full md:w-[250px]"
@@ -49,10 +49,19 @@ export default function BlogList() {
 
       <hr className="mb-8 border-gray-300" />
 
-      <p className="text-lg mb-8">
-        This blog is a curated collection of React concepts—from basics to
-        advanced topics—featuring practical techniques and mini projects to help
-        you master each feature.
+      <p className="text-lg mb-8 leading-relaxed text-gray-800">
+        I'm documenting my React learning journey through a series of hands-on
+        mini projects, each focusing on core fundamentals of React. Check out
+        the complete collection on{" "}
+        <a
+          href="https://github.com/pritamaber/react-fundamental-projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-600 underline hover:text-red-800 font-semibold"
+        >
+          GitHub ↗
+        </a>
+        .
       </p>
 
       <ul className="list-none space-y-4">

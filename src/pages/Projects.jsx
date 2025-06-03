@@ -4,92 +4,92 @@ const projects = [
   {
     title: "StudyPath AI",
     description:
-      "An AI-powered career roadmap generator for Indian students using GPT, built with React and minimal API cost.",
+      "An AI-powered career roadmap generator using OpenAI, for students exploring tech careers in India.",
     liveLink: "https://your-live-link.com/studypath",
     githubLink: "https://github.com/pritamaber/studypath-ai",
     badge: "AI Project",
-    tag: "GPT + React",
-  },
-  {
-    title: "NoticeBoard",
-    description:
-      "A platform for employees serving notice period to list openings and help job seekers get referrals.",
-    liveLink: "https://your-live-link.com/noticeboard",
-    githubLink: "https://github.com/pritamaber/noticeboard",
-    badge: "Referral Tool",
-    tag: "HR + SaaS",
+    tag: "React, GPT API, Forms, PDF, Tailwind",
   },
   {
     title: "MockMate",
     description:
-      "A peer-to-peer and AI-driven mock interview platform built using MERN stack and OpenAI APIs.",
+      "A peer-to-peer and AI mock interview platform built with MERN stack, GPT, and role-based auth.",
     liveLink: "https://your-live-link.com/mockmate",
     githubLink: "https://github.com/pritamaber/mockmate",
     badge: "Interview Prep",
-    tag: "AI + MERN",
-  },
-  {
-    title: "QuickTasks",
-    description:
-      "A minimalist todo and project management app with JWT auth and localStorage sync.",
-    liveLink: "https://your-live-link.com/quicktasks",
-    githubLink: "https://github.com/pritamaber/quicktasks",
-    badge: "Mini App",
-    tag: "JWT + UX",
-  },
-  {
-    title: "InternBridge",
-    description:
-      "Hidden internship marketplace connecting startups with students for short-term gigs.",
-    liveLink: "https://your-live-link.com/internbridge",
-    githubLink: "https://github.com/pritamaber/internbridge",
-    badge: "Startup Idea",
-    tag: "Internships",
+    tag: "React, Context API, OpenAI, MongoDB, Auth",
   },
   {
     title: "DevQuizzer",
     description:
-      "A coding MCQ quiz app to prep for tech interviews, with timer and score breakdown.",
+      "An MCQ quiz platform to prep for interviews, with score, timer, and randomized question logic.",
     liveLink: "https://your-live-link.com/devquizzer",
     githubLink: "https://github.com/pritamaber/devquizzer",
     badge: "Learning App",
-    tag: "Quiz + Timer",
+    tag: "React, useState, useEffect, Timer, LocalStorage",
   },
   {
-    title: "InterviewReplay",
+    title: "AstroExplorer",
     description:
-      "Share and browse real interview experiences for top companies, sorted by role and company.",
-    liveLink: "https://your-live-link.com/interviewreplay",
-    githubLink: "https://github.com/pritamaber/interviewreplay",
-    badge: "Real Stories",
-    tag: "DSA + Reviews",
+      "A visual explorer using NASA's open APIs to browse astronomy pictures, Mars rover data, and more.",
+    liveLink: "https://your-live-link.com/astroexplorer",
+    githubLink: "https://github.com/pritamaber/astroexplorer",
+    badge: "Space App",
+    tag: "React, NASA API, Fetch, Pagination, Carousel",
+  },
+  {
+    title: "IndiaPulse",
+    description:
+      "A D3-powered dashboard using Indian Govt APIs to visualize pollution, rainfall, and transport data.",
+    liveLink: "https://your-live-link.com/indiapulse",
+    githubLink: "https://github.com/pritamaber/indiapulse",
+    badge: "Govt Data",
+    tag: "React, D3.js, API Fetch, Charts, Filter",
+  },
+  {
+    title: "InternBridge",
+    description:
+      "A hidden internship marketplace where startups post gigs and students apply via a clean interface.",
+    liveLink: "https://your-live-link.com/internbridge",
+    githubLink: "https://github.com/pritamaber/internbridge",
+    badge: "Startup Idea",
+    tag: "React, MongoDB, JWT, Forms, Role-based UI",
+  },
+  {
+    title: "FinViz",
+    description:
+      "A financial stock charting tool with real-time candlestick visualizations using D3.js.",
+    liveLink: "https://your-live-link.com/finviz",
+    githubLink: "https://github.com/pritamaber/finviz",
+    badge: "Finance Tool",
+    tag: "React, D3.js, SVG, Stock API, useRef",
   },
   {
     title: "ByteBlog",
     description:
-      "A simple, fast markdown blogging engine with MDX support for devs.",
+      "An ultra-fast blog platform using MDX, optimized for tech writers and React devs.",
     liveLink: "https://your-live-link.com/byteblog",
     githubLink: "https://github.com/pritamaber/byteblog",
     badge: "Blog Engine",
-    tag: "MDX + DevTool",
-  },
-  {
-    title: "CareerSwitch AI",
-    description:
-      "A reskill-to-placement AI tool recommending tech tracks and learning resources for career changers.",
-    liveLink: "https://your-live-link.com/careerswitch",
-    githubLink: "https://github.com/pritamaber/careerswitch-ai",
-    badge: "Career Helper",
-    tag: "AI + Upskill",
+    tag: "React, MDX, Routing, Search, SEO",
   },
   {
     title: "FocusFlow",
     description:
-      "A Pomodoro + task manager web app built with React and Zustand for managing study sessions.",
+      "A productivity tool combining Pomodoro timer, tasks, and streak tracking using Zustand.",
     liveLink: "https://your-live-link.com/focusflow",
     githubLink: "https://github.com/pritamaber/focusflow",
     badge: "Productivity",
-    tag: "Pomodoro + Zustand",
+    tag: "React, Zustand, Timers, LocalStorage",
+  },
+  {
+    title: "CareerSwitch AI",
+    description:
+      "AI-powered tool suggesting learning paths and resources for career switchers in tech.",
+    liveLink: "https://your-live-link.com/careerswitch",
+    githubLink: "https://github.com/pritamaber/careerswitch-ai",
+    badge: "Career Helper",
+    tag: "React, GPT API, Forms, AI Roadmap",
   },
 ];
 export default function Projects() {
@@ -110,7 +110,7 @@ export default function Projects() {
           tag="Learning Series"
         />
         {projects.map((proj, idx) => (
-          <ProjectCard key={idx} {...proj} />
+          <ProjectCard key={idx} {...proj} index={idx} />
         ))}
       </div>
     </div>

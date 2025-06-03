@@ -12,30 +12,52 @@ tags: ["coding", "react", "hooks", "clean-code", "best-practices"]
 
 In react application we sometimes need to change a part of UI on the go , for **example** in an ecom app like amazon and flipkart when you click on add/buy button it adds the product in the cart and the cart shows the number of items in the cart , as you keep adding or removing the item it increases or decreases the cart item count.
 
+**steItemsInCart** is a function which sets the value of the variable **itemsInCart**
+
 ## How to use useState in react
 
-we will make a simple cart counter to show how useState works .
+we will make a simple counter app to show how useState works .
 
-    import React, { useState } from 'react';
-    function CartCounter() {
-      // Step 1: Declare a state variable
-      const [itemsInCart, setItemsInCart] = useState(0);
+    import { useState } from "react";
+    import "./Counter.css";
 
-      // Step 2: Create a function to handle the button click
-      const addToCart = () => {
-        setItemsInCart(itemsInCart + 1); // Increment the count
-      };
+    export default function Counter() {
+      const [count, setCount] = useState(0);
+      const [message, setMessage] = useState("");
+
+      function handleAdd() {
+        setCount((prev) => prev + 1);
+        setMessage(""); // clear message when increasing
+      }
+
+      function handleSubtract() {
+        setCount((prev) => {
+          if (prev === 0) {
+            setMessage("❗ Subtract is limited to 0");
+            return prev;
+          } else {
+            setMessage(""); // clear message
+            return prev - 1;
+          }
+        });
+      }
+
+      function handleReset() {
+        setCount(0);
+        setMessage(""); // reset message too
+      }
 
       return (
-        <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-          <h2>🛒 Shopping Cart</h2>
-          <p>Items in cart: {itemsInCart}</p>
-          <button onClick={addToCart}>Add to Cart</button>
+        <div className="counter-container">
+          <div className="counter-value">{count}</div>
+          <div className="counter-buttons">
+            <button onClick={handleAdd}>Add</button>
+            <button onClick={handleSubtract}>Subtract</button>
+            <button onClick={handleReset}>Reset</button>
+          </div>
+          {message && <p style={{ color: "red", marginTop: "1rem" }}>{message}</p>}
         </div>
       );
     }
-    export default CartCounter;
 
-**steItemsInCart** is a function which sets the value of the variable **itemsInCart**
-
-view the output of this code in [codesandbox](https://3gnz2j.csb.app/)
+view the output of this code in [codesandbox](https://vrcs4f.csb.app/)

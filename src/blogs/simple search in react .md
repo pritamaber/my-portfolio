@@ -1,5 +1,5 @@
 ---
-title: "Simple Movie App to Showcase Search Implementation"
+title: "simple search in react"
 date: "2025-06-06"
 author: "Pritam Das"
 tags: ["coding", "react", "search", "clean-code", "best-practices"]

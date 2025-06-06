@@ -5,7 +5,7 @@ date: "2025-05-31"
 
 author: "Pritam Das"
 
-tags: ["coding", "react", "hooks", "clean-code", "best-practices"]
+tags: ["codings", "react", "hooks", "clean-code", "best-practices"]
 ---
 
 ## useEffect

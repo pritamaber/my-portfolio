@@ -56,7 +56,7 @@ export default function BlogList() {
         <br />
         You can explore the complete collection of mini projects on{" "}
         <a
-          href="https://github.com/pritamaber/react-fundamental-projects"
+          href="https://github.com/pritamaber/react-mini-projects"
           target="_blank"
           rel="noopener noreferrer"
           className="text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold"
@@ -65,12 +65,12 @@ export default function BlogList() {
         </a>{" "}
         and live previews on{" "}
         <a
-          href="https://codesandbox.io/p/github/pritamaber/react-fundamental-projects"
+          href="https://projects.taglet.in"
           target="_blank"
           rel="noopener noreferrer"
           className="text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold"
         >
-          CodeSandbox ↗
+          Projects ↗
         </a>
         .
       </p>

@@ -1,32 +1,24 @@
 ---
-title: "useEffect in React"
-
+title: "useState in React"
 date: "2025-05-31"
-
 author: "Pritam Das"
-
-tags: ["codings", "react", "hooks", "clean-code", "best-practices"]
+tags: ["coding", "react", "state", "clean-code", "best-practices"]
 ---
 
-## useEffect
+## useState
 
-<p>`useEffect` is a React hook that lets you run <strong>side effects</strong> in your components — such as fetching data, starting timers, or accessing local storage.</p>
+`useState` is a React hook that lets you add **state** to functional components. It’s essential for storing and updating values like counters, form inputs, toggles, and more.
 
-<p>It runs <strong>after the component renders</strong>, and you can control <strong>when</strong> it runs using a <em>dependency array</em>. If the dependency array is empty (<code>[]</code>), the effect runs only once after the first render — perfect for initialization.</p>
+### 🧠 How it Works
 
-<p>You can also return a <strong>cleanup function</strong> inside the effect to cancel timers, listeners, or subscriptions.</p>
+When you call `useState`, React returns a **stateful value** and a **function to update it**.
 
 ---
 
 ## Basic Syntax
 
-```js
-useEffect(() => {
-  // run this effect
-  return () => {
-    // optional cleanup
-  };
-}, [dependencies]);
+```
+const [state, setState] = useState(initialValue);
 ```
 
-a simple counter app project - [counter app](https://projects.taglet.in/usestate-counter)
+a simple counter app mini project - [counter app](https://projects.taglet.in/usestate-counter)

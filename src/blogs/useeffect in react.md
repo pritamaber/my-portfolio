@@ -1,20 +1,21 @@
 ---
 title: "useEffect in React"
-
 date: "2025-05-31"
-
 author: "Pritam Das"
-
 tags: ["coding", "react", "hooks", "clean-code", "best-practices"]
 ---
 
 ## useEffect
 
-`useEffect` is a React hook that lets you run **side effects** in your components — such as fetching data, starting timers, or accessing local storage.
+`useEffect` is a React hook used to run **side effects** in your component — like fetching data, setting up subscriptions, or working with timers.
 
-It runs **after the component renders**, and you can control **when** it runs using a **dependency array**. If the dependency array is empty ([]), the effect runs only once after the first render — perfect for initialization.
+### When does it run?
 
-You can also return a **cleanup function** inside the effect to cancel timers, listeners, or subscriptions.
+It runs **after the component renders**, and you can control when it runs by using the **dependency array**.
+
+- `[]` → Runs once on mount (like `componentDidMount`)
+- `[var]` → Runs every time `var` changes
+- No array → Runs after every render
 
 ---
 
@@ -23,10 +24,11 @@ You can also return a **cleanup function** inside the effect to cancel timers, l
 ```
 useEffect(() => {
   // run this effect
+
   return () => {
-    // optional cleanup
+    // cleanup function (optional)
   };
 }, [dependencies]);
 ```
 
-a simple timer app project - [timer app](https://projects.taglet.in/useeffect-timer)
+a simple timer app mini project - [timer app](https://projects.taglet.in/useeffect-timer)

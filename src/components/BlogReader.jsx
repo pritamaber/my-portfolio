@@ -112,7 +112,7 @@ export default function BlogReader({ content, meta = {} }) {
         <br />
         View all projects on{" "}
         <a
-          href="https://github.com/pritamaber/react-fundamental-projects"
+          href="https://github.com/pritamaber/react-mini-projects"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 underline"

@@ -1,25 +1,31 @@
 ---
-title: "simple search in react"
+title: "Simple Search in React"
 date: "2025-06-06"
 author: "Pritam Das"
 tags: ["coding", "react", "search", "clean-code", "best-practices"]
 ---
 
-## 🎯 Live Search in React
+## Simple Search in React
 
-In many applications, you'll often need a search feature — for example, searching movies from a list or finding users in a user directory. In this tutorial, we’ll build a simple **live search** React app that filters movies based on user input.
+In many apps, you’ll need a search feature — like finding a movie from a list or filtering users by name. Let’s build a very basic live search app using React.
 
-We’ll create three files:
-
-- `MovieList.jsx` — main component to render the list
-- `Searchbox.jsx` — a reusable search input field
-- `movieList.js` — static movie data file
+This example filters a static list of movies based on the text entered by the user.
 
 ---
 
-### 📁 1. `MovieList.jsx`
+## What We'll Build
 
-```jsx
+We’ll use three files:
+
+- `MovieList.jsx` — shows all movies and the search box
+- `Searchbox.jsx` — input field for search text
+- `movieList.js` — hardcoded list of movies
+
+---
+
+## MovieList.jsx
+
+```
 import { useState } from "react";
 import Searchbox from "./Searchbox";
 import movieList from "../data/movieList";
@@ -32,32 +38,19 @@ function MovieList() {
   );
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
-        🎬 Top Movies
-      </h1>
-
+    <div>
+      <h1>Top Movies</h1>
       <Searchbox searchMovie={searchMovie} setSearchMovie={setSearchMovie} />
-
-      <ul className="mt-6 grid gap-4">
+      <ul>
         {searchedMovies.length > 0 ? (
           searchedMovies.map((movie) => (
-            <li
-              key={movie.id}
-              className="bg-white shadow-md rounded-xl p-4 flex justify-between items-center hover:shadow-lg transition"
-            >
-              <div className="text-lg font-medium text-gray-900">
-                {movie.name}
-              </div>
-              <div className="text-sm font-semibold text-blue-600">
-                IMDb: {movie.imdb}
-              </div>
+            <li key={movie.id}>
+              <div>{movie.name}</div>
+              <div>IMDb: {movie.imdb}</div>
             </li>
           ))
         ) : (
-          <p className="text-center text-gray-500">
-            No matching movies found.
-          </p>
+          <p>No matching movies found.</p>
         )}
       </ul>
     </div>
@@ -65,25 +58,29 @@ function MovieList() {
 }
 
 export default MovieList;
+```
 
+## Searchbox.jsx
+
+```
 function Searchbox({ searchMovie, setSearchMovie }) {
   return (
-    <div className="mb-4">
-      <input
-        type="text"
-        placeholder="🔍 Search Movies..."
-        value={searchMovie}
-        onChange={(e) => setSearchMovie(e.target.value)}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-      />
-    </div>
+    <input
+      type="text"
+      placeholder="Search movies..."
+      value={searchMovie}
+      onChange={(e) => setSearchMovie(e.target.value)}
+    />
   );
 }
 
 export default Searchbox;
 
-movieList.js
+```
 
+## movieList.js
+
+```
 const movieList = [
   { id: 1, name: "The Shawshank Redemption", imdb: 9.3 },
   { id: 2, name: "The Godfather", imdb: 9.2 },
@@ -103,4 +100,5 @@ const movieList = [
 ];
 
 export default movieList;
+
 ```

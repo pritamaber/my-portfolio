@@ -59,12 +59,19 @@ export default function BlogReader({ content, meta = {} }) {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         components={{
-          h2: ({ node, ...props }) => (
+          h2: ({ ...props }) => (
             <h2
               className="text-2xl text-blue-600 border-b pb-1 mt-8 mb-4 dark:text-blue-400 dark:border-gray-600"
               {...props}
             />
           ),
+          p: ({ ...props }) => (
+            <p
+              className="mb-5 leading-relaxed text-gray-800 dark:text-gray-200"
+              {...props}
+            />
+          ),
+          br: () => <br />,
           code({ inline, className, children, ...props }) {
             const codeText = String(children).trim();
             if (inline) {
@@ -79,7 +86,7 @@ export default function BlogReader({ content, meta = {} }) {
             }
 
             return (
-              <div className="relative mb-6">
+              <div className="relative mt-4 mb-6">
                 <button
                   onClick={() => handleCopy(codeText)}
                   className="absolute top-2 right-2 bg-gray-800 text-white px-2 py-1 text-xs rounded hover:bg-gray-700 transition"
@@ -97,6 +104,22 @@ export default function BlogReader({ content, meta = {} }) {
           },
         }}
       />
+
+      {/* Blog Footer */}
+      <footer className="mt-12 border-t pt-6 text-sm text-center text-gray-500 dark:text-gray-400">
+        This blog is part of the{" "}
+        <strong>React Fundamental Mini Projects</strong> series.
+        <br />
+        View all projects on{" "}
+        <a
+          href="https://github.com/pritamaber/react-fundamental-projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 underline"
+        >
+          GitHub ↗
+        </a>
+      </footer>
     </article>
   );
 }

@@ -1,5 +1,5 @@
 ---
-title: "useState in React"
+title: "useEffect in React"
 
 date: "2025-05-31"
 
@@ -8,56 +8,23 @@ author: "Pritam Das"
 tags: ["coding", "react", "hooks", "clean-code", "best-practices"]
 ---
 
-## useState
+## useEffect
 
-In react application we sometimes need to change a part of UI on the go , for **example** in an ecom app like amazon and flipkart when you click on add/buy button it adds the product in the cart and the cart shows the number of items in the cart , as you keep adding or removing the item it increases or decreases the cart item count.
+<p>`useEffect` is a React hook that lets you run <strong>side effects</strong> in your components — such as fetching data, starting timers, or accessing local storage.</p>
 
-**steItemsInCart** is a function which sets the value of the variable **itemsInCart**
+<p>It runs <strong>after the component renders</strong>, and you can control <strong>when</strong> it runs using a <em>dependency array</em>. If the dependency array is empty (<code>[]</code>), the effect runs only once after the first render — perfect for initialization.</p>
 
-## How to use useState in react
+<p>You can also return a <strong>cleanup function</strong> inside the effect to cancel timers, listeners, or subscriptions.</p>
 
-we will make a simple counter app to show how useState works .
+---
 
-    import { useState } from "react";
-    import "./Counter.css";
+## Basic Syntax
 
-    export default function Counter() {
-      const [count, setCount] = useState(0);
-      const [message, setMessage] = useState("");
-
-      function handleAdd() {
-        setCount((prev) => prev + 1);
-        setMessage(""); // clear message when increasing
-      }
-
-      function handleSubtract() {
-        setCount((prev) => {
-          if (prev === 0) {
-            setMessage("❗ Subtract is limited to 0");
-            return prev;
-          } else {
-            setMessage(""); // clear message
-            return prev - 1;
-          }
-        });
-      }
-
-      function handleReset() {
-        setCount(0);
-        setMessage(""); // reset message too
-      }
-
-      return (
-        <div className="counter-container">
-          <div className="counter-value">{count}</div>
-          <div className="counter-buttons">
-            <button onClick={handleAdd}>Add</button>
-            <button onClick={handleSubtract}>Subtract</button>
-            <button onClick={handleReset}>Reset</button>
-          </div>
-          {message && <p style={{ color: "red", marginTop: "1rem" }}>{message}</p>}
-        </div>
-      );
-    }
-
-view the output of this code in [codesandbox](https://vrcs4f.csb.app/)
+```js
+useEffect(() => {
+  // run this effect
+  return () => {
+    // optional cleanup
+  };
+}, [dependencies]);
+```

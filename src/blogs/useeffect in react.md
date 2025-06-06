@@ -28,3 +28,5 @@ useEffect(() => {
   };
 }, [dependencies]);
 ```
+
+a simple timer app project - [timer app](https://projects.taglet.in/useeffect-timer)

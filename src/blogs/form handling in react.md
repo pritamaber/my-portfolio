@@ -76,3 +76,5 @@ export default function FeedbackForm() {
   );
 }
 ```
+
+a simple form handling mini project - [Form App](https://projects.taglet.in/form-handling)

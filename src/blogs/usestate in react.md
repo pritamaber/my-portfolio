@@ -28,3 +28,5 @@ useEffect(() => {
   };
 }, [dependencies]);
 ```
+
+a simple counter app project - [counter app](https://projects.taglet.in/usestate-counter)

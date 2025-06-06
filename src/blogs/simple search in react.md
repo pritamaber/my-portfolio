@@ -102,3 +102,5 @@ const movieList = [
 export default movieList;
 
 ```
+
+a simple movie search mini project - [movie app](https://projects.taglet.in/simple-search)

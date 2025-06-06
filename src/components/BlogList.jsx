@@ -35,7 +35,7 @@ export default function BlogList() {
     <div className="max-w-3xl mx-auto px-4 py-10 font-roboto text-gray-800 dark:text-gray-200">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <h1 className="text-4xl md:text-5xl font-bold text-red-600 font-dancing dark:text-red-300 mb-6">
-          React fundamental projects 🚀 📝
+          React fundamental blogs 🚀 📝
         </h1>
         <input
           type="search"
@@ -51,8 +51,10 @@ export default function BlogList() {
 
       <p className="text-lg mb-8 leading-relaxed text-gray-800 dark:text-gray-300">
         I'm documenting my React learning journey through a series of hands-on
-        mini projects, each focusing on core fundamentals of React. Check out
-        the complete collection on{" "}
+        mini projects and blog posts — each focused on mastering a core
+        fundamental of React.
+        <br />
+        You can explore the complete collection of mini projects on{" "}
         <a
           href="https://github.com/pritamaber/react-fundamental-projects"
           target="_blank"
@@ -60,6 +62,15 @@ export default function BlogList() {
           className="text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold"
         >
           GitHub ↗
+        </a>{" "}
+        and live previews on{" "}
+        <a
+          href="https://codesandbox.io/p/github/pritamaber/react-fundamental-projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold"
+        >
+          CodeSandbox ↗
         </a>
         .
       </p>

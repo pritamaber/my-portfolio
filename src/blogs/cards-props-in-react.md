@@ -1,6 +1,6 @@
 ---
 title: "Cards and Props in React"
-date: "2025-05-31"
+date: "2025-06-07"
 author: "Pritam Das"
 tags: ["coding", "react", "cards", "clean-code", "best-practices"]
 ---
@@ -13,25 +13,30 @@ Instead of writing the same JSX again and again, we create one reusable card and
 
 ---
 
-## Example: NASA Photo Card App
+## Example: Product Cards (Simple Ecom App)
 
-In this example, we fetch a photo of the day from NASA’s public API and show it using a reusable `PhotoCard.jsx` component.
+In this example, we fetch a list of products from an API and display them using a reusable `ProductCard.jsx` component.
 
 ---
 
-### 1. PhotoCard.jsx
+### 1. ProductCard.jsx
 
-```
-export default function PhotoCard({ title, date, image, explanation }) {
+```jsx
+export default function ProductCard({ title, price, thumbnail }) {
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{date}</p>
-      <img src={image} alt={title} />
-      <p>{explanation}</p>
+    <div className="p-4 border rounded-xl shadow bg-white dark:bg-gray-800 text-center">
+      <img
+        src={thumbnail}
+        alt={title}
+        className="w-full h-48 object-cover mb-3"
+      />
+      <h2 className="text-lg font-semibold">{title}</h2>
+      <p className="text-sm text-gray-600 dark:text-gray-300">₹{price}</p>
     </div>
   );
 }
 ```
 
-a simple cards app mini project - [cards app](https://projects.taglet.in/simple-ecom)
+This component is **reused** for every product by passing different props like `title`, `price`, and `thumbnail`.
+
+👉 Try it live: [cards app](https://projects.taglet.in/simple-ecom)

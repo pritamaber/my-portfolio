@@ -21,7 +21,7 @@ In this example, we fetch a list of products from an API and display them using 
 
 ### 1. ProductCard.jsx
 
-```jsx
+```
 export default function ProductCard({ title, price, thumbnail }) {
   return (
     <div className="p-4 border rounded-xl shadow bg-white dark:bg-gray-800 text-center">

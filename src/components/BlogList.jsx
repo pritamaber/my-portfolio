@@ -65,7 +65,7 @@ export default function BlogList() {
         </a>{" "}
         and live previews on{" "}
         <a
-          href="https://projects.taglet.in"
+          href="https://projects.impritam.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold"

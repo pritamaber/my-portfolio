@@ -103,4 +103,4 @@ export default movieList;
 
 ```
 
-a simple movie search mini project - [movie app](https://projects.taglet.in/movie-search)
+a simple movie search mini project - [movie app](https://projects.impritam.com/movie-search)

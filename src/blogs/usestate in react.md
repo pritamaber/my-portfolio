@@ -21,4 +21,4 @@ When you call `useState`, React returns a **stateful value** and a **function to
 const [state, setState] = useState(initialValue);
 ```
 
-a simple counter app mini project - [counter app](https://projects.taglet.in/usestate-counter)
+a simple counter app mini project - [counter app](https://projects.impritam.com/usestate-counter)

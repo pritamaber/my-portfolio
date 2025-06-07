@@ -77,4 +77,4 @@ export default function FeedbackForm() {
 }
 ```
 
-a simple form handling mini project - [Form App](https://projects.taglet.in/simple-form)
+a simple form handling mini project - [Form App](https://projects.impritam.com/simple-form)

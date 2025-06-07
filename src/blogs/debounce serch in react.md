@@ -64,4 +64,4 @@ Improves performance
 Reduces unnecessary API calls
 Makes UX smoother for users
 
-a simple github profile finder app mini project - [Github profile finder](https://projects.taglet.in/github-profile-finder)
+a simple github profile finder app mini project - [Github profile finder](https://projects.impritam.com/github-profile-finder)

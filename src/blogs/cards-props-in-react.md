@@ -39,4 +39,4 @@ export default function ProductCard({ title, price, thumbnail }) {
 
 This component is **reused** for every product by passing different props like `title`, `price`, and `thumbnail`.
 
-👉 Try it live: [cards app](https://projects.taglet.in/simple-ecom)
+👉 Try it live: [cards app](https://projects.impritam.com/simple-ecom)

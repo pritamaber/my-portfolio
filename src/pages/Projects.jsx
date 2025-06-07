@@ -104,7 +104,7 @@ export default function Projects() {
         <ProjectCard
           title="📘 30+ mini react projects"
           description="A daily React learning journey with 30 mini projects covering core features like useState, useEffect, Context API, Routing, and more."
-          liveLink="https://projects.taglet.in"
+          liveLink="https://projects.impritam.com"
           githubLink="https://github.com/pritamaber/react-mini-projects"
           stack={["React", "Tailwind", "JavaScript"]}
           badge="🔥🔥🔥🔥🔥"

@@ -120,7 +120,7 @@ export default function BlogReader({ content, meta = {} }) {
           GitHub ↗ {"  "}
         </a>
         <a
-          href="https://projects.taglet.in"
+          href="https://projects.impritam.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 underline"

@@ -31,4 +31,4 @@ useEffect(() => {
 }, [dependencies]);
 ```
 
-a simple timer app mini project - [timer app](https://projects.taglet.in/useeffect-timer)
+a simple timer app mini project - [timer app](https://projects.impritam.com/useeffect-timer)

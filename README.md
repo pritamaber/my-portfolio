@@ -1,6 +1,6 @@
 # My portfolio website
 
-Hi, I'm Pritam , and this project is my portfolio website hosted at https://www.taglet.in [taglet.in]
+Hi, I'm Pritam , and this project is my portfolio website hosted at https://www.impritam.com [impritam.com]
 
 You may use the code as a boiler plate for you portfolio website , just change the images and url in the sidebar.
 

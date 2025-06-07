@@ -33,3 +33,5 @@ export default function PhotoCard({ title, date, image, explanation }) {
   );
 }
 ```
+
+a simple cards app mini project - [cards app](https://projects.taglet.in/product-cards)

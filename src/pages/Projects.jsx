@@ -102,7 +102,7 @@ export default function Projects() {
 
       <div className="flex flex-col gap-6">
         <ProjectCard
-          title="📘 30-Day React Fundamentals"
+          title="📘 30+ mini react projects"
           description="A daily React learning journey with 30 mini projects covering core features like useState, useEffect, Context API, Routing, and more."
           liveLink="https://projects.taglet.in"
           githubLink="https://github.com/pritamaber/react-mini-projects"

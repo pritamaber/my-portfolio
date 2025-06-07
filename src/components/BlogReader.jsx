@@ -117,7 +117,15 @@ export default function BlogReader({ content, meta = {} }) {
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 underline"
         >
-          GitHub ↗
+          GitHub ↗ {"  "}
+        </a>
+        <a
+          href="https://projects.taglet.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 underline"
+        >
+          complete project list ↗
         </a>
       </footer>
     </article>

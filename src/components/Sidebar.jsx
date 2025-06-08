@@ -5,7 +5,12 @@ import profilePic from "../assets/pritam-av.jpg";
 const navLinks = [
   { label: "Home", path: "/", emoji: "🏠" },
   { label: "Blogs", path: "/blogs", emoji: "📃" },
-  { label: "Projects", path: "/projects", emoji: "🚀" },
+  {
+    label: "Projects",
+    path: "https://projects.impritam.com",
+    emoji: "🚀",
+    external: true,
+  },
   { label: "Contact", path: "/contacts", emoji: "☎️" },
 ];
 
@@ -78,22 +83,34 @@ export default function Sidebar() {
 
         {/* Navigation */}
         <nav className="mt-6 flex flex-col gap-2">
-          {navLinks.map(({ label, path, emoji }) => (
-            <NavLink
-              key={path}
-              to={path}
-              onClick={() => isMobile && setOpen(false)}
-              className={({ isActive }) =>
-                `block text-center py-2 px-3 rounded-md text-base font-medium transition ${
-                  isActive
-                    ? "bg-red-100 text-red-700 font-semibold dark:bg-red-800 dark:text-white"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-300"
-                }`
-              }
-            >
-              {emoji} {label}
-            </NavLink>
-          ))}
+          {navLinks.map(({ label, path, emoji, external }) =>
+            external ? (
+              <a
+                key={path}
+                href={path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-2 px-3 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-300 transition"
+              >
+                {emoji} {label}
+              </a>
+            ) : (
+              <NavLink
+                key={path}
+                to={path}
+                onClick={() => isMobile && setOpen(false)}
+                className={({ isActive }) =>
+                  `block text-center py-2 px-3 rounded-md text-base font-medium transition ${
+                    isActive
+                      ? "bg-red-100 text-red-700 font-semibold dark:bg-red-800 dark:text-white"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-300"
+                  }`
+                }
+              >
+                {emoji} {label}
+              </NavLink>
+            )
+          )}
         </nav>
 
         <div className="flex-grow" />

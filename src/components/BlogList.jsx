@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const files = import.meta.glob("/src/blogs/*.md", { as: "raw" });
 
@@ -21,7 +22,9 @@ export default function BlogList() {
         })
       );
 
-      setBlogs(blogData.reverse()); // 👈 Ensures oldest at top, latest at bottom
+      setBlogs(blogData.reverse()); // latest first
+
+      setLoading(false);
     };
 
     loadBlogs();
@@ -76,7 +79,9 @@ export default function BlogList() {
       </p>
 
       <ul className="list-none space-y-4">
-        {filteredBlogs.length > 0 ? (
+        {loading ? (
+          <LoadingSpinner />
+        ) : filteredBlogs.length > 0 ? (
           filteredBlogs.map(({ slug, title }, index) => (
             <li key={slug}>
               <Link

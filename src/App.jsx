@@ -8,23 +8,12 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/Notfound";
-
 export default function App() {
   return (
     <div className="flex">
       <Sidebar />
-      {/* <DarkModeToggle /> */}
 
-      {/* Main content - dark mode aware */}
-      <main
-        className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300"
-        style={{
-          marginLeft: "220px",
-          padding: "2rem 3rem",
-          flexGrow: 1,
-          minHeight: "100vh",
-        }}
-      >
+      <main className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 p-8 sm:p-12 flex-grow min-h-screen ml-0 md:ml-56">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />

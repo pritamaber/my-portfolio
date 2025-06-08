@@ -7,10 +7,10 @@ const Footer = () => {
 
   return (
     <footer
-      className="fixed bottom-0 left-[220px] w-[calc(100vw-220px)] p-4 bg-white text-center z-[1000]
-                       dark:bg-gray-900
-                       border-t border-transparent dark:border-transparent
-                       shadow-none"
+      className="fixed bottom-0 left-0 w-full md:left-56 md:w-[calc(100vw-14rem)]
+             p-4 bg-white text-center z-[1000]
+             dark:bg-gray-900
+             border-t border-transparent dark:border-transparent shadow-none"
     >
       <p className="text-sm text-gray-700 dark:text-gray-400 font-roboto tracking-wide m-0">
         © {year}{" "}

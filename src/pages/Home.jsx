@@ -10,6 +10,7 @@ const skillGroups = {
   Backend: [
     { name: "Node.js", rating: 4 },
     { name: "Express", rating: 4 },
+    { name: "Graph QL", rating: 4 },
     { name: "REST APIs", rating: 5 },
     { name: "MongoDB", rating: 4 },
     { name: "Firebase", rating: 4 },
@@ -25,7 +26,7 @@ const skillGroups = {
     { name: "Data Structures", rating: 5 },
     { name: "System Design", rating: 3 },
     { name: "Python", rating: 3 },
-    { name: "AI/ML", rating: 3 },
+    { name: "AI/ML - learning....", rating: 3 },
   ],
 };
 
@@ -45,18 +46,27 @@ export default function Home() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-red-600 font-dancing dark:text-red-300 mb-6"
+        className="text-4xl md:text-5xl font-bold text-red-600 font-dancing dark:text-red-300 mb-6 flex items-center gap-2"
       >
-        🙋‍♂️ Hi, I'm Pritam
+        <motion.span
+          animate={{ rotate: [0, 20, -10, 20, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="inline-block origin-[70%_70%]"
+          role="img"
+          aria-label="waving hand"
+        >
+          🙋‍♂️
+        </motion.span>
+        Hi, I'm Pritam
       </motion.h1>
 
       <p className="text-lg sm:text-xl mb-6">
-        A passionate software engineer from{" "}
+        I'm a software engineer from{" "}
         <span className="font-semibold text-red-600 dark:text-red-300">
           India 🇮🇳
         </span>
-        , I build seamless digital experiences with a blend of logic, clean
-        design, and AI.
+        , focused on solving meaningful problems through clean code, scalable
+        systems, and practical AI integration.
       </p>
 
       <p className="text-lg font-medium mb-3">🚀 My expertise are in:</p>

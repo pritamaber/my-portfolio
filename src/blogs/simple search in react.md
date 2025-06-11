@@ -1,5 +1,5 @@
 ---
-title: "Simple Search in React"
+title: "🔍 Simple Search in React"
 date: "2025-06-06"
 author: "Pritam Das"
 tags: ["coding", "react", "search", "clean-code", "best-practices"]

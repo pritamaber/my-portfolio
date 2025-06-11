@@ -1,5 +1,5 @@
 ---
-title: "Debounced Search in React"
+title: "🔍 Debounced Search in React"
 
 date: "2025-06-07"
 

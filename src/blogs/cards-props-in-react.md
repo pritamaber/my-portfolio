@@ -1,5 +1,5 @@
 ---
-title: "Cards and Props in React"
+title: "🃏 Cards and Props in React"
 date: "2025-06-07"
 author: "Pritam Das"
 tags: ["coding", "react", "cards", "clean-code", "best-practices"]

@@ -57,7 +57,7 @@ export default function Home() {
         >
           🙋‍♂️
         </motion.span>
-        Hi, I'm Pritam
+        Hi, I'm {"<"} Pritam {"/>"}
       </motion.h1>
 
       <p className="text-lg sm:text-xl mb-6">

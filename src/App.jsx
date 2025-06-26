@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import DarkModeToggle from "./components/DarkModeToggle";
 import BlogList from "./components/BlogList";
 import BlogPost from "./components/BlogPost";
 import Home from "./pages/Home";

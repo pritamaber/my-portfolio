@@ -102,8 +102,8 @@ const projects = [
   title: "Sansthita NGO Website",
   description:
     "Official website for Sansthita NGO built with Next.js and Tailwind. Showcases the organization’s mission, impact stories, initiatives, and donation support with a clean, responsive design.",
-  liveLink: "https://sansthita.org", // change if different
-  githubLink: "https://github.com/pritamaber/sansthita-ngo", // adjust if needed
+  liveLink: "https://sansthita.org", 
+  githubLink: "https://github.com/pritamaber/sansthita-ngo", 
   badge: "Client Project",
   tag: "Next.js • React • Tailwind • SEO",
 },
